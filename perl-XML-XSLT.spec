@@ -1,7 +1,7 @@
 #
 # Conditional build:
-%bcond_with	tests		# perform "make test"
-%bcond_without	autodeps	# don't BR packages needed only
+%bcond_without	tests		# do not perform "make test"
+%bcond_without	autodeps	# do not BR packages, needed only
 				# for resolving deps
 #
 %include	/usr/lib/rpm/macros.perl
