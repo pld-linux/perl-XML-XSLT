@@ -20,7 +20,7 @@ Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	44d6d9e183d5c49c5d422ae42e7a9f68
 URL:		http://www.perl.com/CPAN/modules/by-module/XML/XML-XSLT-%{version}.readme
-BuildRequires:	perl-devel >= 5.6.1
+BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov
 %if %{with tests}
 BuildRequires:	perl(Test::More) >= 0.33
