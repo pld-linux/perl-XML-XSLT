@@ -1,6 +1,6 @@
 
 # Conditional build:
-%bcond_with	tests		# do not perform "make test"
+%bcond_with	tests		# perform "make test"
 %bcond_without	autodeps	# don't BR packages needed only
 				# for resolving deps
 
