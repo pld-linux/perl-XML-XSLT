@@ -2,14 +2,20 @@
 Summary:	Perl XML::XSLT module
 Summary(es):	Modulo Perl XML::XSLT
 Summary(pl):	Modu³ perla XML::XSLT
-Summary(pt_BR): Modulo Perl XML::XSLT
+Summary(pt_BR):	Modulo Perl XML::XSLT
 Name:		perl-XML-XSLT
 Version:	0.32
 Release:	3
 License:	GPL
 Group:		Development/Languages/Perl
+Group(cs):	Vývojové prostøedky/Programovací jazyky/Perl
 Group(de):	Entwicklung/Sprachen/Perl
+Group(es):	Desarrollo/Lenguajes/Perl
+Group(fr):	Development/Langues/Perl
+Group(ja):	³«È¯/¸À¸ì/Perl
 Group(pl):	Programowanie/Jêzyki/Perl
+Group(pt):	Desenvolvimento/Linguagens/Perl
+Group(ru):	òÁÚÒÁÂÏÔËÁ/ñÚÙËÉ/Perl
 Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/XML/XML-XSLT-%{version}.tar.gz
 URL:		http://www.perl.com/CPAN/modules/by-module/XML/XML-XSLT-%{version}.readme
 BuildRequires:	perl >= 5.6
