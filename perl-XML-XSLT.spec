@@ -1,3 +1,5 @@
+%define	pdir	XML
+%define	pnam	XSLT
 %include	/usr/lib/rpm/macros.perl
 Summary:	Perl XML::XSLT module
 Summary(es):	Modulo Perl XML::XSLT
@@ -5,7 +7,8 @@ Summary(pl):	Modu³ perla XML::XSLT
 Summary(pt_BR):	Modulo Perl XML::XSLT
 Name:		perl-XML-XSLT
 Version:	0.32
-Release:	4
+Release:	5
+
 License:	GPL
 Group:		Development/Languages/Perl
 Group(cs):	Vývojové prostøedky/Programovací jazyky/Perl
@@ -22,7 +25,7 @@ Group(pt):	Desenvolvimento/Linguagens/Perl
 Group(ru):	òÁÚÒÁÂÏÔËÁ/ñÚÙËÉ/Perl
 Group(sl):	Razvoj/Jeziki/Perl
 Group(sv):	Utveckling/Språk/Perl
-Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/XML/XML-XSLT-%{version}.tar.gz
+Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 URL:		http://www.perl.com/CPAN/modules/by-module/XML/XML-XSLT-%{version}.readme
 BuildRequires:	perl-devel >= 5.6.1
 BuildRequires:	perl-URI
