@@ -9,7 +9,7 @@
 %define	pnam	XSLT
 Summary:	Perl XML::XSLT module
 Summary(es):	Modulo Perl XML::XSLT
-Summary(pl):	Modu³ perla XML::XSLT
+Summary(pl):	Modu³ Perla XML::XSLT
 Summary(pt_BR):	Modulo Perl XML::XSLT
 Name:		perl-XML-XSLT
 Version:	0.48
