@@ -41,7 +41,7 @@ Perl Interface to XSL Transformational sheets.
 
 %build
 %{__perl} Makefile.PL \
-	INSTALLDIRS=vendor 
+	INSTALLDIRS=vendor
 %{__make}
 
 %install
