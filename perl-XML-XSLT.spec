@@ -12,12 +12,12 @@ Summary(es):	Modulo Perl XML::XSLT
 Summary(pl):	Modu³ perla XML::XSLT
 Summary(pt_BR):	Modulo Perl XML::XSLT
 Name:		perl-XML-XSLT
-Version:	0.47
+Version:	0.48
 Release:	1
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	8a1342efb72e1e013a3300ebd5fd8d18
+# Source0-md5:	44d6d9e183d5c49c5d422ae42e7a9f68
 URL:		http://www.perl.com/CPAN/modules/by-module/XML/XML-XSLT-%{version}.readme
 BuildRequires:	perl-devel >= 5.6.1
 BuildRequires:	rpm-perlprov
