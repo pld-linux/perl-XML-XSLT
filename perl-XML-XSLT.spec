@@ -1,9 +1,9 @@
-
+#
 # Conditional build:
 %bcond_with	tests		# perform "make test"
 %bcond_without	autodeps	# don't BR packages needed only
 				# for resolving deps
-
+#
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	XML
 %define	pnam	XSLT
@@ -14,7 +14,8 @@ Summary(pt_BR):	Modulo Perl XML::XSLT
 Name:		perl-XML-XSLT
 Version:	0.48
 Release:	1
-License:	GPL
+# same as perl
+License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	44d6d9e183d5c49c5d422ae42e7a9f68
@@ -27,7 +28,7 @@ BuildRequires:	perl(Test::More) >= 0.33
 %if %{with tests} || %{with autodeps}
 BuildRequires:	perl-libwww
 BuildRequires:	perl-URI
-BuildRequires:	perl(XML::DOM) >= 1.25
+BuildRequires:	perl-XML-DOM >= 1.25
 BuildRequires:	perl-XML-Parser >= 2.23
 %endif
 BuildArch:	noarch
@@ -61,7 +62,6 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
 install examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
