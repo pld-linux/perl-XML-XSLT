@@ -1,3 +1,9 @@
+
+# Conditional build:
+%bcond_with	tests		# do not perform "make test"
+%bcond_without	autodeps	# don't BR packages needed only
+				# for resolving deps
+
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	XML
 %define	pnam	XSLT
@@ -13,14 +19,17 @@ Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	c49c245e8b86c8a30e444879564a042d
 URL:		http://www.perl.com/CPAN/modules/by-module/XML/XML-XSLT-%{version}.readme
-BuildRequires:	perl-Test-Simple >= 0.33
-BuildRequires:	perl-URI
-BuildRequires:	perl-XML-Parser >= 2.23
 BuildRequires:	perl-devel >= 5.6.1
-BuildRequires:	perl-libxml-enno
-BuildRequires:	perl(XML::DOM) >= 1.25
-BuildRequires:	perl-libwww
 BuildRequires:	rpm-perlprov
+%if %{with tests}
+BuildRequires:	perl(Test::More) >= 0.33
+%endif
+%if %{with tests} || %{with autodeps}
+BuildRequires:	perl-libwww
+BuildRequires:	perl-URI
+BuildRequires:	perl(XML::DOM) >= 1.25
+BuildRequires:	perl-XML-Parser >= 2.23
+%endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -43,6 +52,8 @@ Perl Interface to XSL Transformational sheets.
 %{__perl} Makefile.PL \
 	INSTALLDIRS=vendor
 %{__make}
+
+%{?with_tests: %{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
