@@ -14,7 +14,7 @@ Source0:	http://www.perl.com/CPAN/modules/by-module/XML/XML-XSLT-%{version}.tar.
 URL:		http://www.perl.com/CPAN/modules/by-module/XML/XML-XSLT-%{version}.readme
 BuildRequires:	perl >= 5.6
 BuildRequires:	perl-URI
-BuildRequires:	perl-XML-DOM
+BuildRequires:	perl-libxml-enno
 BuildRequires:	perl-libwww
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
