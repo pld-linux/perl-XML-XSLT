@@ -7,7 +7,7 @@ Summary(pl):	Modu³ perla XML::XSLT
 Summary(pt_BR):	Modulo Perl XML::XSLT
 Name:		perl-XML-XSLT
 Version:	0.40
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
@@ -39,7 +39,8 @@ Perl Interface to XSL Transformational sheets.
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-%{__perl} Makefile.PL
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor 
 %{__make}
 
 %install
@@ -58,6 +59,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README* Change* MANIFEST example*
 %attr(755,root,root) %{_bindir}/*
-%{perl_sitelib}/XML/*
+%{perl_vendorlib}/XML/*
 %{_mandir}/man[13]/*
 %{_examplesdir}/%{name}-%{version}
