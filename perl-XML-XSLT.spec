@@ -19,7 +19,7 @@ BuildRequires:	perl-devel >= 5.6.1
 BuildRequires:	perl-libxml-enno
 BuildRequires:	perl(XML::DOM) >= 1.25
 BuildRequires:	perl-libwww
-BuildRequires:	rpm-perlprov
+BuildRequires:	rpm-perlprov >= 4.0.2-104
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
