@@ -7,7 +7,7 @@ Summary(pl):	Modu³ perla XML::XSLT
 Summary(pt_BR):	Modulo Perl XML::XSLT
 Name:		perl-XML-XSLT
 Version:	0.40
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
