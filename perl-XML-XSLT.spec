@@ -10,7 +10,7 @@ License:	GPL
 Group:		Development/Languages/Perl
 Group(de):	Entwicklung/Sprachen/Perl
 Group(pl):	Programowanie/Jêzyki/Perl
-Source0:	http://www.perl.com/CPAN/modules/by-module/XML/XML-XSLT-%{version}.tar.gz
+Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/XML/XML-XSLT-%{version}.tar.gz
 URL:		http://www.perl.com/CPAN/modules/by-module/XML/XML-XSLT-%{version}.readme
 BuildRequires:	perl >= 5.6
 BuildRequires:	perl-URI
