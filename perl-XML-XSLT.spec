@@ -5,8 +5,8 @@
 				# for resolving deps
 #
 %include	/usr/lib/rpm/macros.perl
-%define	pdir	XML
-%define	pnam	XSLT
+%define		pdir	XML
+%define		pnam	XSLT
 Summary:	Perl XML::XSLT module
 Summary(es):	Modulo Perl XML::XSLT
 Summary(pl):	Modu³ Perla XML::XSLT
