@@ -1,120 +1,60 @@
-%define PackageName XML-XSLT
-%{expand: %%define perl_version  %(perl -V:version | sed "s!.*='!!;s!'.*!!")}
-
-Name: perl-%{PackageName}
-Version: 0.30
-Release: 2cl
-Summary: Perl XML::XSLT module
+%include	/usr/lib/rpm/macros.perl
+Summary:	Perl XML::XSLT module
+Summary(es):	Modulo Perl XML::XSLT
+Summary(pl):	Modu³ perla XML::XSLT
 Summary(pt_BR): Modulo Perl XML::XSLT
-Summary(es): Modulo Perl XML::XSLT
-Group: Libraries
-Group(pt_BR): Bibliotecas
-Group(es): Bibliotecas
-License: GPL
-Source: http://www.perl.com/CPAN/modules/by-module/XML/%{PackageName}-%{version}.tar.gz
-URL: http://www.perl.com/CPAN/modules/by-module/XML/%{PackageName}-%{version}.readme
-AutoProv: no
-BuildRequires: perl perl-devel perl-XML-Parser perl-HTML-Parser perl-libxml-enno
-PreReq: perl = %{perl_version}
-Requires: perl-XML-Parser perl-HTML-Parser perl-libxml-enno 
-BuildRoot: %{_tmppath}/%{name}-%{version}-root
-
-%{expand: %%define perl_man1ext  %(perl -V:man1ext | sed "s!.*='!!;s!'.*!!")}
-%{expand: %%define perl_man3ext  %(perl -V:man3ext | sed "s!.*='!!;s!'.*!!")}
-%{expand: %%define perl_installman1dir %(perl -V:installman1dir | sed "s!.*='!!;s!'.*!!")}
-%{expand: %%define perl_installman3dir %(perl -V:installman3dir | sed "s!.*='!!;s!'.*!!")}
-%{expand: %%define perl_installarchlib %(perl -V:installarchlib | sed "s!.*='!!;s!'.*!!")}
-%{expand: %%define perl_prefix  %(if [ %{perl_version} != 5.00503 ]; then echo %{buildroot};else echo /; fi) }
-
+Name:		perl-XML-XSLT
+Version:	0.30
+Release:	1
+License:	GPL
+Group:		Development/Languages/Perl
+Group(de):	Entwicklung/Sprachen/Perl
+Group(pl):	Programowanie/Jêzyki/Perl
+Source0:	http://www.perl.com/CPAN/modules/by-module/XML/XML-XSLT-%{version}.tar.gz
+URL:		http://www.perl.com/CPAN/modules/by-module/XML/XML-XSLT-%{version}.readme
+BuildRequires:	perl >= 5.6
+BuildRequires:	perl-URI
+BuildRequires:	perl-XML-DOM
+BuildRequires:	perl-libwww
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Perl Interface to XSL Transformational sheets.
-
-%description -l pt_BR
 Perl Interface to XSL Transformational sheets.
 
 %description -l es
 Perl Interface to XSL Transformational sheets.
 
+%description -l pl
+Mody³y perla do arkuszy konwersji XSL.
+
+%description -l pt_BR
+Perl Interface to XSL Transformational sheets.
 
 %prep
-%setup -q -n %{PackageName}-%{version}
+%setup -q -n XML-XSLT-%{version}
 
 %build
-#Some modules require POLLUTE=1 in the next line
-CFLAGS="%{optflags}" perl Makefile.PL           \
-INSTALLMAN1DIR=%{perl_prefix}%{perl_installman1dir}         \
-INSTALLMAN3DIR=%{perl_prefix}%{perl_installman3dir}
-make OPTIMIZE="%{optflags}"
-#make test
+perl Makefile.PL
+%{__make}
 
 %install
-rm -rf %{buildroot}
-mkdir -p %{buildroot}%{perl_installarchlib}
-mkdir -p %{buildroot}%{perl_installman1dir}
-mkdir -p %{buildroot}%{perl_installman3dir}
-mkdir -p %{buildroot}%{_libdir}/perl5/perllocal
-make PREFIX=%{buildroot}%{_prefix} install
+rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-#Get the file "perllocal.pod" location
-find %{buildroot}%{_prefix} -type f -print | grep perllocal.pod > podfile_full.lst
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
-#move it to docs
-mv `cat podfile_full.lst` .
+install example/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-#Correct the data inside the file
-perl -pi -e 's@%{buildroot}@@g' podfile_full.lst
-
-#Add glob to man pages
-find %{buildroot}%{_prefix} -type f -print |\
-    perl -pe 's!%{buildroot}!!g; m!man\d/.*\.\d! && s!$!\*!' > file-list.lst
-
-cp perllocal.pod %{buildroot}%{_libdir}/perl5/perllocal/%{name}-perllocal.pod
-cp podfile_full.lst %{buildroot}%{_libdir}/perl5/perllocal/%{name}-podfile_full.lst
-
-#get the dirs
-find %{buildroot}%{_libdir}/perl5 -type d -print | perl -pe " \
-    s!^%{buildroot}!!;					\
-    s!^%{_libdir}/perl5\n!!;				\
-    s!^%{_libdir}/perl5/%{perl_version}\n!!;		\
-    s!^%{installarchlib}\n!!;				\
-    s!^%{installarchlib}/auto\n!!;			\
-    s!^%{_libdir}/perl5/perllocal\n!!;			\
-    s!^%{_libdir}/perl5/site_perl\n!!;			\
-    s!^%{_libdir}/perl5/site_perl/%{perl_version}\n!!;	\
-    s!^%{_libdir}/perl5/site_perl/%{perl_version}/i386-linux\n!!;	\
-    s!^%{_libdir}/perl5/site_perl/%{perl_version}/i386-linux/auto\n!!;	\
-    s!^!%dir !;" >> file-list.lst
-
-#Some authors leave docs with the exec bit on 
-find . -type f  -exec chmod 0644 {} \; 
-
-#correct a few permitions
-find %{buildroot} -type d  -exec chmod 0755 {} \; 
-find %{buildroot} -type f  -exec chmod 0644 {} \; 
-chmod 0755 %{buildroot}%{_bindir}/*
-
+gzip -9nf README* Change* MANIFEST
 
 %clean
-rm -rf %{_builddir}/%{PackageName}-%{version}
-rm -rf %{buildroot}
+rm -rf $RPM_BUILD_ROOT
 
-
-%files -f file-list.lst
-%defattr(-,root,root, 0755)
-%doc README* Change* MANIFEST example*
-%{_libdir}/perl5/perllocal/%{name}-perllocal.pod
-%{_libdir}/perl5/perllocal/%{name}-podfile_full.lst
-
-
-%post
-
-#Adjusts the date too
-cat %{_libdir}/perl5/perllocal/%{name}-perllocal.pod |\
-sed -e "s@\(^=head2 \).*\(:.*\)@\1`date`\2@" >> `cat %{_libdir}/perl5/perllocal/%{name}-podfile_full.lst`
-
-
-%changelog
-* Mon Jan 22 2001 Raul Dias <rsd@conectiva.com>
-+ perl-XML-XSLT-0.30-2cl
-- first build
+%files
+%defattr(644,root,root,755)
+%doc *.gz example*
+%attr(755,root,root) %{_bindir}/*
+%{perl_sitelib}/XML/*
+%{_mandir}/man[13]/*
+%{_examplesdir}/%{name}-%{version}
