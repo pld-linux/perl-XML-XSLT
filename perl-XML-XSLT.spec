@@ -5,7 +5,7 @@ Summary(pl):	Modu³ perla XML::XSLT
 Summary(pt_BR): Modulo Perl XML::XSLT
 Name:		perl-XML-XSLT
 Version:	0.32
-Release:	2
+Release:	3
 License:	GPL
 Group:		Development/Languages/Perl
 Group(de):	Entwicklung/Sprachen/Perl
@@ -16,6 +16,7 @@ BuildRequires:	perl >= 5.6
 BuildRequires:	perl-URI
 BuildRequires:	perl-libxml-enno
 BuildRequires:	perl-libwww
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
