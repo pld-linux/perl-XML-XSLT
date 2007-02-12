@@ -8,9 +8,9 @@
 %define		pdir	XML
 %define		pnam	XSLT
 Summary:	Perl XML::XSLT module
-Summary(es):	Modulo Perl XML::XSLT
-Summary(pl):	Modu≥ Perla XML::XSLT
-Summary(pt_BR):	Modulo Perl XML::XSLT
+Summary(es.UTF-8):   Modulo Perl XML::XSLT
+Summary(pl.UTF-8):   Modu≈Ç Perla XML::XSLT
+Summary(pt_BR.UTF-8):   Modulo Perl XML::XSLT
 Name:		perl-XML-XSLT
 Version:	0.48
 Release:	1
@@ -37,13 +37,13 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Perl Interface to XSL Transformational sheets.
 
-%description -l es
+%description -l es.UTF-8
 Perl Interface to XSL Transformational sheets.
 
-%description -l pl
-Modu≥y perla do arkuszy konwersji XSL.
+%description -l pl.UTF-8
+Modu≈Çy perla do arkuszy konwersji XSL.
 
-%description -l pt_BR
+%description -l pt_BR.UTF-8
 Perl Interface to XSL Transformational sheets.
 
 %prep
