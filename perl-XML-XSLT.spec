@@ -8,9 +8,9 @@
 %define		pdir	XML
 %define		pnam	XSLT
 Summary:	Perl XML::XSLT module
-Summary(es.UTF-8):   Modulo Perl XML::XSLT
-Summary(pl.UTF-8):   Moduł Perla XML::XSLT
-Summary(pt_BR.UTF-8):   Modulo Perl XML::XSLT
+Summary(es.UTF-8):	Modulo Perl XML::XSLT
+Summary(pl.UTF-8):	Moduł Perla XML::XSLT
+Summary(pt_BR.UTF-8):	Modulo Perl XML::XSLT
 Name:		perl-XML-XSLT
 Version:	0.48
 Release:	1
