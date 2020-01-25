@@ -4,7 +4,6 @@
 %bcond_without	autodeps	# do not BR packages, needed only
 				# for resolving deps
 #
-%include	/usr/lib/rpm/macros.perl
 %define		pdir	XML
 %define		pnam	XSLT
 Summary:	Perl XML::XSLT module
