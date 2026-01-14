@@ -12,7 +12,7 @@ Summary(pl.UTF-8):	Moduł Perla XML::XSLT
 Summary(pt_BR.UTF-8):	Modulo Perl XML::XSLT
 Name:		perl-XML-XSLT
 Version:	0.48
-Release:	2
+Release:	3
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
